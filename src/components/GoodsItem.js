@@ -4,7 +4,7 @@ import {addGoodsToCard} from "../redux/actions";
 import { connect } from "react-redux";
 
 
-mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
   addGoodsToCard : (id) => dispatch(addGoodsToCard(id))
 });
 

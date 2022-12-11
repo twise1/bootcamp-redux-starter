@@ -32,6 +32,14 @@ function reducer(state=initialState,action){
             cart,
         };
     }
+    if(action.type === "REMOVE_GOOD_FROM_CART"){
+        let cart = [...state.cart];
+        cart.splice(action.payload.id,1);
+        return{
+            ...state,
+            cart,
+        };
+    }
     return state;
 }
 export default reducer;

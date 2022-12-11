@@ -6,3 +6,11 @@ export function addGoodsToCard (id) {
         }
     };
 }
+export function RemoveGoodsFromCard (id) {
+    return{
+        type:"REMOVE_GOOD_FROM_CART",
+        payload : {
+            id: id
+        }
+    };
+}
