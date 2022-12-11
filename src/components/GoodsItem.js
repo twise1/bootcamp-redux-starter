@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import "../styles.css";
-import store from "../redux/store";
 import {addGoodsToCard} from "../redux/actions";
+import { connect } from "react-redux";
+
+
+mapDispatchToProps = (dispatch) => ({
+  addGoodsToCard : (id) => dispatch(addGoodsToCard(id))
+});
 
 
 class GoodsItem extends Component {
-  ButtonClick = (id) => {
-    store.dispatch(addGoodsToCard(id));
-
-  };
   render() {
     const { title, description, price, id } = this.props;
 
@@ -20,10 +21,10 @@ class GoodsItem extends Component {
           <span className="goods-item__price-value goods-item__price-value_new">{price}.00$</span>
         </p>
         <p className="goods-item__description">{description}</p>
-        <button className="goods-item__add-to-card" onClick={() => this.ButtonClick(id)}>Add to cart</button>
+        <button className="goods-item__add-to-card" onClick={() => this.props.addGoodsToCard(id)}>Add to cart</button>
       </div>
     );
   }
 }
 
-export default GoodsItem;
+export default connect(null,mapDispatchToProps)(GoodsItem);
